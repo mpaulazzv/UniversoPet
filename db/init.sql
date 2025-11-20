@@ -4,6 +4,11 @@ create table
         ciudad VARCHAR(50) NOT NULL
     );
 
+create table Estados(
+    idEstado INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    estado VARCHAR(50) NOT NULL
+);
+
 create table
     Sedes(
         idSede INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
@@ -15,11 +20,6 @@ create table
         FOREIGN KEY (idCiudad) REFERENCES Ciudades(idCiudad),
         FOREIGN KEY (idEStado) REFERENCES Estados(idEstado)
     );
-
-create table Estados(
-    idEstado INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
-    estado VARCHAR(50) NOT NULL
-);
 
 create table EstadosCitas(
     idEStadoCita INT AUTO_INCREMENT PRIMARY KEY,
@@ -135,3 +135,5 @@ create table DiagnosticosxCita(
     FOREIGN KEY (idCita) REFERENCES Citas(idCita),
     FOREIGN KEY (idDiagnostico) REFERENCES Diagnosticos(idDiagnostico)
 );
+
+insert into admins (admin, password) values ('admin', 'admin');
