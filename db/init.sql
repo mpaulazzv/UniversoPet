@@ -1,8 +1,19 @@
+CREATE USER 'veterinaria'@'%' IDENTIFIED BY 'universopet';
+create database veterinaria;
+GRANT USAGE ON veterinaria.* TO 'veterinaria'@'%';
+GRANT ALL PRIVILEGES ON veterinaria.* TO 'veterinaria'@'%';
+use veterinaria;
+
 create table
     Ciudades (
         idCiudad INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
         ciudad VARCHAR(50) NOT NULL
     );
+
+create table Estados(
+    idEstado INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    estado VARCHAR(50) NOT NULL
+);
 
 create table
     Sedes(
@@ -15,11 +26,6 @@ create table
         FOREIGN KEY (idCiudad) REFERENCES Ciudades(idCiudad),
         FOREIGN KEY (idEStado) REFERENCES Estados(idEstado)
     );
-
-create table Estados(
-    idEstado INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
-    estado VARCHAR(50) NOT NULL
-);
 
 create table EstadosCitas(
     idEStadoCita INT AUTO_INCREMENT PRIMARY KEY,
@@ -135,3 +141,5 @@ create table DiagnosticosxCita(
     FOREIGN KEY (idCita) REFERENCES Citas(idCita),
     FOREIGN KEY (idDiagnostico) REFERENCES Diagnosticos(idDiagnostico)
 );
+
+insert into admins (admin, password) values ('admin', 'admin');

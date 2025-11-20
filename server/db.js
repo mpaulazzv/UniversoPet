@@ -5,7 +5,7 @@
 import { createPool } from "mysql2/promise"
 
 export const pool = createPool({
-    host: 'localhost',
+    host: 'database',
     port: 3306,
     user: 'veterinaria',
     password: 'universopet',

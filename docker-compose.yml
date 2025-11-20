@@ -1,0 +1,24 @@
+services:
+  database:
+    container_name: database
+    build: ./db
+    ports:
+      - "3306:3306"
+    volumes:
+      - /data:/data
+
+  backend:
+    container_name: backend
+    build: ./server
+    ports:
+      - "3001:3001"
+    depends_on:
+      - database
+  
+  frontend:
+    container_name: frontend
+    build: ./
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
