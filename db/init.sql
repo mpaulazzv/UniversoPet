@@ -1,3 +1,9 @@
+CREATE USER 'veterinaria'@'%' IDENTIFIED BY 'universopet';
+create database veterinaria;
+GRANT USAGE ON veterinaria.* TO 'veterinaria'@'%';
+GRANT ALL PRIVILEGES ON veterinaria.* TO 'veterinaria'@'%';
+use veterinaria;
+
 create table
     Ciudades (
         idCiudad INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
